@@ -1,0 +1,13 @@
+<div class="container justify-content-center" style="border:2px solid; border-radius:15px; padding:20px; margin-top:15px;margin-bottom:15px">
+    <!-- HEADER -->
+    <h2 style="text-align: center;color:blue">SUB-CATEGORIES</h2>
+    <div class="row justify-content-around" id="categoryRow">
+      <!-- CARD -->
+      <div class="card" style="width: 10rem;" *ngFor="let s of subCategory" (click)="select(s.subCategoryId)">
+        <img class="card-img-top" src={{s.picture}} alt="Card image cap">
+        <!--src="images/carticon1.png"-->
+        <hr>
+          <h6 class="card-title" style="text-align:center;">{{s.name}}</h6>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,150 @@
+TEMPRARY BACKUP OF MONGODB DATABASE
+
+
+
+CATEGORY collection ==========================================================================>
+
+db.Category.find().pretty();
+{
+        "_id" : ObjectId("5c376177786a7463282ab5da"),
+        "categoryId" : 1,
+        "name" : "mobiles",
+        "picture" : "assets\\icons\\carticon1.png",
+        "subCategory" : [
+                {
+                        "subCategoryId" : 1,
+                        "name" : "android",
+                        "picture" : "assets\\icons\\carticon1.png"
+                },
+                {
+                        "subCategoryId" : 2,
+                        "name" : "ios",
+                        "picture" : "assets\\icons\\carticon1.png"
+                }
+        ]
+}
+{
+        "_id" : ObjectId("5c3762296f58541130054b65"),
+        "categoryId" : 2,
+        "name" : "tv",
+        "picture" : "assets\\icons\\carticon1.png",
+        "subCategory" : [
+                {
+                        "subCategoryId" : 1,
+                        "name" : "led",
+                        "picture" : "assets\\icons\\carticon1.png"
+                },
+                {
+                        "subCategoryId" : 2,
+                        "name" : "oled",
+                        "picture" : "assets\\icons\\carticon1.png"
+                }
+        ]
+}
+
+
+BRANDS collection ========================================================================================>
+
+
+ db.Brands.find().pretty();
+{
+        "_id" : ObjectId("5c3760ba786a7463282ab5d9"),
+        "brand" : "xiaomi",
+        "description" : "",
+        "picture" : "assets\\icons\\xiaomi.png",
+        "categoryId" : 1,
+        "subCategoryId" : 1
+}
+{
+        "_id" : ObjectId("5c3761ea6f58541130054b64"),
+        "brand" : "apple",
+        "description" : "",
+        "picture" : "assets\\icons\\usericon.png",
+        "categoryId" : 1,
+        "subCategoryId" : 2
+}
+
+
+
+
+PRODUCTS collection    =====================================================================================>
+
+
+ db.Products.find().pretty();
+{
+        "_id" : ObjectId("5c37618b786a7463282ab5db"),
+        "productDetails" : {
+                "productId" : NumberLong(1),
+                "name" : "mi a1",
+                "brand" : "xiaomi",
+                "mrp" : 17000,
+                "discount" : 2000.01,
+                "inStock" : 10,
+                "quantityPerUnit" : 1,
+                "colour" : "black",
+                "varient" : "4gb|64gb",
+                "categoryId" : 1,
+                "subCategoryId" : 1,
+                "image" : "assets\\icons\\mia1.png",
+                "timeStamp" : ""
+        },
+        "productImages" : [
+                "assets\\icons\\mia1.png",
+                "assets\\icons\\mia1.png",
+                "assets\\icons\\mia1.png"
+        ],
+        "productFeatures" : [
+                "full hd display",
+                "android oreo",
+                "dual camera"
+        ],
+        "productDescription" : [
+                "mi dual camera phone"
+        ],
+        "productSpecs" : {
+
+        },
+        "productWarrenty" : {
+                "replacement" : "10 Days",
+                "warrenty" : "1 year on handset and 6 months on accessories"
+        }
+}
+{
+        "_id" : ObjectId("5c37631d6f58541130054b66"),
+        "productDetails" : {
+                "productId" : NumberLong(2),
+                "name" : "mi a2",
+                "brand" : "xiaomi",
+                "mrp" : 18000,
+                "discount" : 2000.01,
+                "inStock" : 10,
+                "quantityPerUnit" : 1,
+                "colour" : "black",
+                "varient" : "6gb|64gb",
+                "categoryId" : 1,
+                "subCategoryId" : 1,
+                "image" : "assets\\icons\\mia2.png",
+                "timeStamp" : ""
+        },
+        "productImages" : [
+                "assets\\icons\\mia2.png",
+                "assets\\icons\\mia2.png",
+                "assets\\icons\\mia2.png",
+                "assets\\icons\\mia2.png"
+        ],
+        "productFeatures" : [
+                "full hd+ display",
+                "android pie",
+                "f1.75 dual camera"
+        ],
+        "productDescription" : [
+                "mi a2 powered by google"
+        ],
+        "productSpecs" : {
+
+        },
+        "productWarrenty" : {
+                "replacement" : "10 Days",
+                "warrenty" : "1 year on handset and 6 months on accessories"
+        }
+}

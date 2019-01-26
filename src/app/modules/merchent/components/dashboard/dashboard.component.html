@@ -1,0 +1,66 @@
+<!-- {{merchentDetails | json}} -->
+<h2 *ngIf="message!=null" style="color: red;text-align: center">{{message}}</h2>
+
+<div class="container">
+  <h2 style="color: blue ; text-align: center">Merchent DashBoard</h2>
+  <hr>
+  <div class="row">
+    <div class="col-2">
+      <h5>Account Details</h5>
+    </div>
+    <div class="col-2">Name <br>
+      <h6>{{merchentDetails.name | titlecase}}</h6>
+    </div>
+    <div class="col-2">Shop Name <br>
+      <h6>{{merchentDetails.shopName | titlecase}}</h6>
+    </div>
+    <div class="col-2">Email <br>
+      <h6>{{merchentDetails.email}}</h6>
+    </div>
+    <div class="col-2">Mobile <br>
+      <h6>{{merchentDetails.mobile}}</h6>
+    </div>
+    <div class="col-2"><a class="btn btn-danger btn-sm" (click)="logout()" role="button">Log Out</a></div>
+  </div>
+  <hr>
+</div>
+
+<!-- <div class="container">
+  {{adds | json}}
+</div> -->
+
+<div class="container col-md-9">
+  <div class="row" style="border: solid 1px;border-radius:10px; padding:10px; margin:5px" *ngFor="let p of adds">
+    <div class="col-3" (click)="select(p.productDetails.productId)">
+      <img src="{{p.productDetails.image}}" style="height: 135px; width: 135px" class="img-thumbnail rounded slider-size img-product-size">
+    </div>
+
+    <div class="col-3" (click)="select(p.productDetails.productId)">
+      <span>{{p.productDetails.name | titlecase}}</span>
+      <br>
+      <span style="color: red">MRP {{p.productDetails.mrp | currency:"INR"}}</span>
+      <br>
+      <span style="color: green">Our Price {{p.productDetails.mrp-p.productDetails.discount | currency:"INR"}}</span>
+      <br>
+      <span>Discount {{p.productDetails.discount/(p.productDetails.mrp-p.productDetails.discount) | percent}}</span>
+    </div>
+
+    <div class="col-3" (click)="select(p.productDetails.productId)">
+      <!-- <p *ngIf="expression;else templateName">{{availability}}</p> -->
+      <span>by {{p.productDetails.brand | uppercase}}</span>
+      <br>
+      <span>Colour: {{p.productDetails.colour}}</span>
+      <br>
+      <span>Varient: {{p.productDetails.varient}}</span>
+      <br>
+      <span>InStock: {{p.productDetails.inStock}}</span>
+    </div>
+
+    <div class="col-3 text-center">
+      <br>
+      <button type="button" class="btn-sm btn-link" (click)="deleteAdd(p.productDetails.productId)" style="margin-top:2%">Delete
+        item!</button>
+    </div>
+  </div>
+  <button type="button" class="btn btn-link" (click)="sellMoreItem()" style=" float:right">Sell More Items!</button>
+</div>

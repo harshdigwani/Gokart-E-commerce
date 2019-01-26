@@ -1,0 +1,113 @@
+<div class="container">
+    <br>
+    <div class="navbar">
+        <h3 style="text-align: center;color:#686666">{{product.productDetails.name | titlecase}}
+            by {{product.productDetails.brand | titlecase}} , {{product.productDetails.colour}} ,
+            {{product.productDetails.varient}}
+        </h3>
+    </div>
+    <hr>    
+    <!-- SLIDER -->
+    <!-- <div id="carouselIndicators" class="col carousel slide container slider-size" data-interval="2500" data-ride="carousel"
+        style="margin-top:.5px" *ngFor="let i of product.productImages">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item slider-size">
+                <img class="d-block w-100 img-size" src="{{i}}" alt="First slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div> -->
+
+    <div class="row container">
+
+        <div class="col-xs-6 item-photo">
+            <img style="max-width:75%;" src="{{product.productDetails.image}}" />
+        </div>
+
+        <div class="col-xs-6" style="margin-left: 10%">
+            <h4 style="color: #686666">{{product.productDetails.name | titlecase}}
+                {{product.productDetails.varient | uppercase}}
+                <br>
+                by {{product.productDetails.brand | titlecase}}
+                <br>
+                {{product.productDetails.colour | titlecase}}
+                <br>
+                <span style="color :red">MRP {{product.productDetails.mrp | currency:"INR"}}</span>
+                <br>
+                Discount {{product.productDetails.discount/(product.productDetails.mrp-product.productDetails.discount)
+                | percent}}
+                <br>
+                <span style="color :limegreen">Our Price {{product.productDetails.mrp-product.productDetails.discount |
+                    currency:"INR"}}</span>
+                <br>
+                <span *ngIf="product.productDetails.inStock>0" style="color: limegreen">Available</span>
+                <br>
+                <span *ngIf="product.productDetails.inStock<1" style="color: red">Not Available</span>
+            </h4>
+            <button class="btn btn-success" (click)="buyNow(product.productDetails.productId)">Buy Now</button>
+            <br>
+            <button class="btn btn-success" (click)="addToCart(product.productDetails.productId)">Add to cart</button>
+            <br>
+            <button class="btn btn-link" (click)="addToWishlist(product.productDetails.productId)">Add To Wishlist!</button>
+            <br>
+            <button class="btn btn-link" (click)="sell(product.productDetails.productId)">Buy Now!</button>
+            <br>
+        </div>
+    </div>
+    <hr>
+
+    <div class="container">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-features-tab" data-toggle="tab" href="#nav-features" role="tab"
+                    aria-controls="nav-features" aria-selected="true">Features</a>
+                <a class="nav-item nav-link" id="nav-desc-tab" data-toggle="tab" href="#nav-desc" role="tab"
+                    aria-controls="nav-desc" aria-selected="false">Description</a>
+                <a class="nav-item nav-link" id="nav-spec-tab" data-toggle="tab" href="#nav-spec" role="tab"
+                    aria-controls="nav-spec" aria-selected="false">Specification</a>
+                <a class="nav-item nav-link" id="nav-warrenty-tab" data-toggle="tab" href="#nav-warrenty" role="tab"
+                    aria-controls="nav-warrenty" aria-selected="false">Warrenty</a>
+
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-features" role="tabpanel" aria-labelledby="nav-features-tab"
+                style="margin-top: 5%;margin-left: 1%">
+                <h6 *ngFor="let p of product.productFeatures">
+                    {{p | titlecase}}
+                </h6>
+            </div>
+            <div class="tab-pane fade" id="nav-desc" role="tabpanel" aria-labelledby="nav-desc-tab" style="margin-top: 5%;margin-left: 1%">
+                <h6 *ngFor="let p of product.productDescription">
+                    {{p | titlecase}}
+                </h6>
+            </div>
+            <div class="tab-pane fade" id="nav-spec" role="tabpanel" aria-labelledby="nav-spec-tab" style="margin-top: 5%;margin-left: 1%">
+                <h3>Specification</h3>
+                {{productSpecs | json}}
+                <h6 *ngFor="let p of product.productFeatures">
+                    {{p | titlecase}}
+                </h6>
+            </div>
+            <div class="tab-pane fade" id="nav-warrenty" role="tabpanel" aria-labelledby="nav-warrenty-tab" style="margin-top: 5%;margin-left: 1%">
+                <h6>
+                   Replacement : {{product.productWarrenty.replacement}} <br>
+                   Warrenty : {{product.productWarrenty.warrenty}}
+                </h6>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>

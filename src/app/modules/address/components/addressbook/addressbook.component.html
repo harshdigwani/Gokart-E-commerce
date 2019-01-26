@@ -1,0 +1,54 @@
+<h2 style="text-align:center;color:red" *ngIf="message!=null">
+  {{message | json}}
+  <hr>
+</h2>
+<div class="row container" style="margin-top: 20px;margin-bottom: 20px">
+  <div class="col-md-3">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/account']" routerLinkActive="router-link-active"
+        role="tab">Account Details</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/mycart']" role="tab">My
+        Cart</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/wishlist']" role="tab">My
+        Wishlist</a>
+      <a class="list-group-item list-group-item-action active" data-toggle="list" [routerLink]="['/address']" role="tab">Address
+        Book</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/address-add']" role="tab">Add
+        New Address</a>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div *ngFor="let addr of address;let i = index" style="margin: auto">
+      <div id="accordion" *ngIf="!updateTemp">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                aria-controls="collapseOne">
+                Address {{i+1}}
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <h4>{{addr.name | titlecase}}</h4>
+              <p>{{addr.mobile}}<br>
+                {{addr.houseNo | titlecase}},
+                {{addr.colony | titlecase}},
+                {{addr.landmark | titlecase}} <br>
+                {{addr.pincode}} <br>
+                {{addr.city | titlecase}},
+                {{addr.state | titlecase}}
+              </p>
+              <h6>{{addr.type | titlecase}}</h6>
+              <hr>
+              <button class="btn btn-success btn-small" (click)="update(addr)">Update</button>
+              <button class="btn btn-danger btn-small" (click)="delete(addr.addressId)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

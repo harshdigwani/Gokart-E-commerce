@@ -1,0 +1,65 @@
+<!-- {{cart | json}}
+<hr>
+{{cart.quantity | json}} -->
+
+<div class="row container" style="margin-top: 20px;margin-bottom: 20px">
+  <div class="col-md-3">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/account']" routerLinkActive="router-link-active"
+        role="tab">Account Details</a>
+      <a class="list-group-item list-group-item-action active" data-toggle="list" [routerLink]="['/mycart']" role="tab">My
+        Cart</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/wishlist']" role="tab">My
+        Wishlist</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/address']" role="tab">Address
+        Book</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/address-add']" role="tab">Add
+        New Address</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/address-add']" role="tab">Update
+        Address</a>
+    </div>
+  </div>
+
+
+  <div class="col-md-9 " style="margin: auto">
+    <h2 style="color:blue ; text-align: center">My Cart</h2>
+    <hr>
+    <!-- Message if login failed or item not found -->
+    <h2>{{message}}</h2>
+    <div class="row" style="border: solid 1px;border-radius:10px; padding:10px; margin:5px" *ngFor="let p of cart">
+      <div class="col-3" (click)="select(p.productDetails.productId)">
+        <img src="{{p.productDetails.image}}" style="height: 135px; width: 135px" class="img-thumbnail rounded slider-size img-product-size">
+      </div>
+
+      <div class="col-3" (click)="select(p.productDetails.productId)">
+        <span>{{p.productDetails.name | titlecase}}</span>
+        <br>
+        <span style="color: red">MRP {{p.productDetails.mrp | currency:"INR"}}</span>
+        <br>
+        <span style="color: green">Our Price {{p.productDetails.mrp-p.productDetails.discount | currency:"INR"}}</span>
+        <br>
+        <span>Discount {{p.productDetails.discount/(p.productDetails.mrp-p.productDetails.discount) | percent}}</span>
+      </div>
+
+      <div class="col-3" (click)="select(p.productDetails.productId)">
+        <!-- <p *ngIf="expression;else templateName">{{availability}}</p> -->
+        <span>by {{p.productDetails.brand | uppercase}}</span>
+        <br>
+        <span>Colour: {{p.productDetails.colour}}</span>
+        <br>
+        <span>Varient: {{p.productDetails.varient}}</span>
+        <br>
+        <span style="color: lawngreen" *ngIf="p.productDetails.inStock>0">Available</span>
+        <span style="color: red" *ngIf="p.productDetails.inStock<=0">Not Available</span>
+      </div>
+
+      <div class="col-3 text-center">
+        <button type="button" class="btn-sm btn-primary" (click)="buyNow(p.productDetails.productId)" style="margin-top: 5%">Buy
+          Now</button>
+        <br>
+        <button type="button" class="btn-sm btn-link" (click)="remove(p.productDetails.productId)" style="margin-top:2%">Remove</button>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>

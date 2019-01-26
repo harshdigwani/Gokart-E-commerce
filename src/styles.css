@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+.slider-size{
+    /* height: 400ox; */
+    width: 100%;
+  }
+  /*.img-size{
+    height: 300px;
+    width: 600px;
+  }*/
+  .img-product-size{
+    max-width: 150px;
+    max-height: 150px;
+    min-width: 50px;
+    min-height: 50px;
+  }
+  .strip{
+    height: 50px;
+    text-align: center;
+  }
+  .btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 0 0;
+    font-size: 15px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+  }
+  /* html { font-size: 1rem; } */
+  
+  @media (min-width: 1200px) {
+      html { font-size: 1.75rem; }
+  }
+  @media (min-width: 992px) {
+      html { font-size: 1.5rem; }
+  }
+  @media (min-width: 768px) {
+      html { font-size: 1.25rem; }
+  }
+  @media (max-width: 576px) {
+      html { font-size: .6rem; }
+  }
+  

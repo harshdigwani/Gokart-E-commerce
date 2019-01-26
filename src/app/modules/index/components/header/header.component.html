@@ -1,0 +1,73 @@
+<!-- Required meta tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Nav Bar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="header" style="background-color: #000;">
+  <a class="navbar-brand" [routerLink]="['/']">Gokart</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']">HOME<span class="sr-only"></span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Shop by category
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <div *ngFor="let c of category">
+            <a class="dropdown-item" (click)="categorySelect(c.categoryId)">{{c.name}}</a>
+            <div class="dropdown-divider"></div>
+          </div>
+          <a class="dropdown-item" (click)="addCategory()">Add more...</a>
+        </div>
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/login']">Login</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/signup']">Sign Up</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Sell with Us!</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" [routerLink]="['/merchent/login']">Login here!</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/merchent/register']">Register here!</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/merchent/dashboard']">DashBoard</a>
+        </div>
+
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About Us!<span class="sr-only"></span></a>
+      </li>
+    </ul>
+
+    <div class="form-inline my-2 my-lg-0">
+      <div class="container" style="text-align:center">
+        <input class="form-control mr-sm-2" type="search" [(ngModel)] = 'value' placeholder="Search..." aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="search(value)" >Search</button>
+      </div>
+    </div>
+
+  </div>
+  <form class="form-inline my-2 my-lg-0" action="" method="post">
+    <a [routerLink]="['/mycart']"><img src="../../../assets/icons/carticon.png" style="height:40px; width:40px; margin-right: 10px; border-radius: 8px "
+        alt=""></a>
+  </form>
+  <a [routerLink]="['/account']"><img src="../../../assets/icons/usericon.png" style="height:40px; width:40px; margin-right: auto; border-radius: 8px"
+      alt=""></a>
+</nav>
+<!-- <script type="text/javascript" src="validate.js" ></script>-->

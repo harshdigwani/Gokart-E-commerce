@@ -1,0 +1,13 @@
+<!-- {{brands | json}} -->
+<div class="container justify-content-center" style="border:1px solid; border-radius:15px; padding:20px; margin-top:15px;margin-bottom:15px">
+    <!-- HEADER -->
+    <h2 style="text-align: center;color:blue">Shop by Brands</h2>
+    <div class="row justify-content-around" id="categoryRow">
+        <!-- BRANDS LIST -->
+        <div style="width: 10rem;" *ngFor="let b of brands" (click)="select(b.brand)">
+            <img class="card-img-top" src={{b.picture}} alt="{{b.brand | titlecase}}">
+            <br>
+            <h6 class="card-title" style="text-align:center;">{{b.brand | titlecase}}</h6>
+        </div>
+    </div>
+</div>

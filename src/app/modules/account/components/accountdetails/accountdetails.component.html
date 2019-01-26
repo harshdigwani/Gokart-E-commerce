@@ -1,0 +1,34 @@
+<div class="row container">
+  <div class="col-md-3" style="margin-top: 20px">
+    <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item list-group-item-action active" data-toggle="list" [routerLink]="['/account']" routerLinkActive="router-link-active"  role="tab">Account Details</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/mycart']" role="tab" >My Cart</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/wishlist']" role="tab" >My Wishlist</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/address']" role="tab" >Address Book</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/address-add']" role="tab" >Add New Address</a>
+    </div>
+  </div>
+  <div class="container" style="width : 45% ; margin-top: 20px;margin-bottom: 20px">
+    <div class="card">
+      <div class="card-header" style="background-color: ghostwhite">
+        <h5 style="text-align: center;">Account Details</h5>
+      </div>
+      <div class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          First Name <br>
+          <h5>{{accountDetails.firstName | titlecase}}</h5>
+          <hr>
+          Last Name <br>
+          <h5>{{accountDetails.lastName | titlecase}}</h5>
+          <hr>
+          Email <br>
+          <h5>{{accountDetails.email}}</h5>
+          <hr>
+          Mobile <br>
+          <h5>{{accountDetails.mobile}}</h5>
+          <hr>
+          <button class="btn btn-danger btn-small" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>

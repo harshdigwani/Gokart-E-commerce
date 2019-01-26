@@ -1,0 +1,122 @@
+<div class="row container" style="margin-top: 20px;margin-bottom: 20px">
+  <div class="col-md-3">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/account']" routerLinkActive="router-link-active"
+        role="tab">Account Details</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/mycart']" role="tab">My
+        Cart</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/wishlist']" role="tab">My
+        Wishlist</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" [routerLink]="['/address']" role="tab">Address
+        Book</a>
+      <a class="list-group-item list-group-item-action active" data-toggle="list" [routerLink]="['/address-add']" role="tab">Add
+        New Address</a>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div style="width : 60% ; margin: auto">
+      <form [formGroup]="addressForm" (ngSubmit)="save()">
+        <h2 style="text-align: center;color: blue">Address Form</h2>
+        <!--Name-->
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name" required maxlength="30">
+        </div>
+        <div class="alert alert-danger" *ngIf="addressForm.controls['name'].hasError('required')&&showFormError">
+          *** Can't Left Blank ***
+        </div>
+        <div class="alert alert-warning" *ngIf="addressForm.controls['name'].hasError('minlength')&&showFormError">
+          *** min length should be 3 ***
+        </div>
+
+        <!--Mobile-->
+        <div class="form-group">
+          <label>mobile</label>
+          <input type="tel" class="form-control" (keydown.space)="$event.preventDefault()" formControlName="mobile"
+            required maxlength="10">
+        </div>
+        <div class="alert alert-danger" *ngIf="addressForm.controls['mobile'].hasError('required')&&showFormError">
+          *** Can't Left Blank ***
+        </div>
+        <div class="alert alert-warning" *ngIf="addressForm.controls['mobile'].hasError('minlength')&&showFormError">
+          *** please enter a valid mobile number ***
+        </div>
+
+        <!--Pincode-->
+        <div class="form-group">
+          <label>Pincode</label>
+          <input type="tel" class="form-control" (keydown.space)="$event.preventDefault()" formControlName="pincode"
+            required maxlength="6">
+        </div>
+        <div class="alert alert-danger" *ngIf="addressForm.controls['pincode'].hasError('required')&&showFormError">
+          *** Can't Left Blank ***
+        </div>
+        <div class="alert alert-warning" *ngIf="addressForm.controls['pincode'].hasError('minlength')&&showFormError">
+          *** please enter a valid pincode number ***
+        </div>
+
+        <!--House no-->
+        <div class="form-group">
+          <label>House no./Block/Building</label>
+          <input type="text" class="form-control" formControlName="house" required maxlength="50">
+        </div>
+        <div class="alert alert-danger" *ngIf="addressForm.controls['house'].hasError('required')&&showFormError">
+          *** Can't Left Blank ***
+        </div>
+
+        <!--Colony-->
+        <div class="form-group">
+          <label>Colony</label>
+          <input type="text" class="form-control" formControlName="colony" required maxlength="50">
+        </div>
+        <div class="alert alert-danger" *ngIf="addressForm.controls['colony'].hasError('required')&&showFormError">
+          *** Can't Left Blank ***
+        </div>
+
+        <!--Landmark-->
+        <div class="form-group">
+          <label>Landmark</label>
+          <input type="text" class="form-control" formControlName="landmark" required maxlength="50">
+        </div>
+        <div class="alert alert-danger" *ngIf="addressForm.controls['landmark'].hasError('required')&&showFormError">
+          *** Can't Left Blank ***
+        </div>
+
+        <!--State-->
+        <!-- DropDown -->
+        <div class="form-group">
+          <label>State</label>
+          <select class="form-control" formControlName="state">
+            <option value="">--Select--</option>
+            <option *ngFor="let st of states" value="{{st}}">{{st}}</option>
+          </select>
+        </div>
+
+        <!--City-->
+        <!-- DropDown -->
+        <div>
+          <label>City</label>
+          <select class="form-control" formControlName="city">
+            <option value="">--Select--</option>
+            <option *ngFor="let ct of getCities()" value="{{ct}}">{{ct}}</option>
+          </select>
+        </div>
+
+        <!--Address Type-->
+        <div>
+          <label>Select Address Type</label>
+          <br>
+          <label>Home</label>
+          <input type="radio" value="home" formControlName="type">
+          <br>
+          <label>Office</label>
+          <input type="radio" value="office" formControlName="type">
+        </div>
+
+        <div>
+          <input class="btn btn-primary" type="submit" value="Save Address">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
