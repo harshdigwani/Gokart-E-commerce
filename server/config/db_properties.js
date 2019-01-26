@@ -1,7 +1,7 @@
 module.exports = {
     host: "localhost",
     user: "root",
-    password: "harsh",
+    password: "root",
     database: "gokart",
     token: ""
 }
