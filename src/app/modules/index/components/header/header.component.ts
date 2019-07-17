@@ -33,10 +33,11 @@ export class HeaderComponent implements OnInit {
   public search(value) {
     console.log("Search method from header called")
     this._router.navigate(['search/'+value])
-    location.reload()  }
+    // location.reload()
+    }
 
   public categorySelect(category) {
-    alert("refresh")
+    // alert("refresh")
     //Navigate to home ['.'] and navigate to same url []
     this._router.navigate(['sub-category'],
       {
