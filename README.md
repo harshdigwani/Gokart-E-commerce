@@ -25,3 +25,17 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# Some Gif for displaying functionality and UI
+
+## Account
+https://github.com/harshdigwani/Gokart-E-commerce/blob/master/Gif/account.gif
+
+## Searching a Product
+https://github.com/harshdigwani/Gokart-E-commerce/blob/master/Gif/product%20search.gif
+
+## Product Details
+https://github.com/harshdigwani/Gokart-E-commerce/blob/master/Gif/product%20select.gif
+
+## User Signup
+https://github.com/harshdigwani/Gokart-E-commerce/blob/master/Gif/user%20signup.gif
