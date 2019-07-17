@@ -28,14 +28,21 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Some Gif for displaying functionality and UI
 
+
 ## Account
-https://github.com/harshdigwani/Gokart-E-commerce/blob/master/Gif/account.gif
+![](Gif/account.gif)
+
+
 
 ## Searching a Product
-https://github.com/harshdigwani/Gokart-E-commerce/blob/master/Gif/product%20search.gif
+![](Gif/product%20search.gif)
+
+
 
 ## Product Details
-https://github.com/harshdigwani/Gokart-E-commerce/blob/master/Gif/product%20select.gif
+![](Gif/product%20select.gif)
+
+
 
 ## User Signup
-https://github.com/harshdigwani/Gokart-E-commerce/blob/master/Gif/user%20signup.gif
+![](Gif/user%20signup.gif)
